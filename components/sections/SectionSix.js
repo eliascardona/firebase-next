@@ -1,7 +1,6 @@
-import React from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import styles from '../../styles/Landing.module.css'
+import React from "react";
+import Image from "next/image";
+import styles from "../../styles/Landing.module.css";
 
 export const SectionSix = () => {
   return (
@@ -15,7 +14,12 @@ export const SectionSix = () => {
           <div className={styles.col6}>
             <div className={styles.el}>
               <div className={styles.cover}>
-                <Image src="/images/instructor.jpg" alt="instructor"></Image>
+                <Image
+                  src="/images/instructor.jpg"
+                  alt="instructor"
+                  objectFit="cover"
+                  layout="fill"
+                ></Image>
               </div>
             </div>
             <div className={styles.el}>
@@ -27,19 +31,19 @@ export const SectionSix = () => {
                   <span className={styles.gray}>Marketing expert</span>
                 </span>
                 Digital products are a unique opportunity that today is
-                revolutionizing online business and the world of digital marketing.
-                And you only need 3 things to get started: a computer, internet
-                connection and the knowledge that we are going to reveal to you in
-                this program Digital products are a unique opportunity that today is
-                revolutionizing online business and the world of digital marketing.
-                And you only need 3 things to get started: a computer, internet
-                connection and the knowledge that we are going to reveal to you in
-                this program
+                revolutionizing online business and the world of digital
+                marketing. And you only need 3 things to get started: a
+                computer, internet connection and the knowledge that we are
+                going to reveal to you in this program Digital products are a
+                unique opportunity that today is revolutionizing online business
+                and the world of digital marketing. And you only need 3 things
+                to get started: a computer, internet connection and the
+                knowledge that we are going to reveal to you in this program
               </p>
             </div>
           </div>
         </div>
       </div>
     </>
-  )
-}
+  );
+};

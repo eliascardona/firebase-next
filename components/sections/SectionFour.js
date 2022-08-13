@@ -13,7 +13,7 @@ export const SectionFour = () => {
         <div className={styles.col6}>
           <div className={styles.el}>
             <div className={styles.cover}>
-              <Image width={200} height={200} src="/images/people.jpg" alt="people"></Image>
+              <Image layout="fill" src="/images/people.jpg" alt="people"></Image>
             </div>
           </div>
           <div className={styles.el}>
@@ -53,7 +53,7 @@ export const SectionFour = () => {
         <div className={styles.col6}>
           <div className={styles.el}>
             <div className={styles.cover}>
-              <Image width={200} height={200} src="/images/people.jpg" alt="people"></Image>
+              <Image layout="fill" src="/images/people.jpg" alt="people"></Image>
             </div>
           </div>
           <div className={styles.el}>

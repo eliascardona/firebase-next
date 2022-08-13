@@ -29,7 +29,7 @@ export const SectionFive = () => {
         <div className="col-6 extra-gap">
           <div className={styles.el}>
             <div className={styles.cover}>
-              <img src="./img/people.jpg" alt="img of people" />
+              <Image layout="fill" src="/images/people.jpg" alt="people"></Image>
             </div>
           </div>
           <div className={styles.el}>
@@ -65,7 +65,7 @@ export const SectionFive = () => {
         <div className={styles.col6}>
           <div className={styles.el}>
             <div className={styles.cover}>
-              <img src="./img/people.jpg" alt="img of people" />
+              <Image layout="fill" src="/images/people.jpg" alt="people"></Image>
             </div>
           </div>
           <div className={styles.el}>

@@ -32,7 +32,7 @@ export const SectionOne = () => {
             <h1 style={{ color: "rgb(0, 204, 255)" }}>Your super title</h1>
             <h2>Super stunning subtitle for sell your infoproduct</h2>
             <div className={styles.cover}>
-              <Image width={100} height={100} src="/images/result.jpg" alt="result" />
+              <Image width={913} height={541} src="/images/result.jpg" alt="result" />
             </div>
             <button className={styles.sellBtn}>
               <ion-icon name="bag-handle-outline" />
