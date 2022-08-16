@@ -32,13 +32,15 @@ export const SectionOne = () => {
             <h1 style={{ color: "rgb(0, 204, 255)" }}>Your super title</h1>
             <h2>Super stunning subtitle for sell your infoproduct</h2>
             <div className={styles.cover}>
-              <Image width={913} height={541} src="/images/result.jpg" alt="result" />
+              <Image width={913} height={541} src="/images/result.jpg" alt="result" className={styles.img}></Image>
             </div>
-            <button className={styles.sellBtn}>
-              <ion-icon name="bag-handle-outline" />
-              <span>buy the course</span>
-              <small>lorem ipsum, dolor sit amet consectetur adipisicing elit</small>
-            </button>
+            <Link href="/payment">
+              <button type="button" className={styles.sellBtn}>
+                <ion-icon name="bag-handle-outline" />
+                <span>buy the course</span>
+                <small>lorem ipsum, dolor sit amet consectetur adipisicing elit</small>
+              </button>
+            </Link>  
           </div>
         </div>
       </div>

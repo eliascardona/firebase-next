@@ -14,12 +14,7 @@ export const SectionSix = () => {
           <div className={styles.col6}>
             <div className={styles.el}>
               <div className={styles.cover}>
-                <Image
-                  src="/images/instructor.jpg"
-                  alt="instructor"
-                  objectFit="cover"
-                  layout="fill"
-                ></Image>
+                <Image width={454} height={680} src="/images/instructor.jpg" alt="instructor" className={styles.img}></Image>
               </div>
             </div>
             <div className={styles.el}>

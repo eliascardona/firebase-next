@@ -13,13 +13,7 @@ export const SectionEight = () => {
           <div className={styles.col6}>
             <div className={styles.el}>
               <div className={styles.circle}>
-                <Image
-                  src="/images/circular.png"
-                  className={styles.circle}
-                  alt="instructor"
-                  objectFit="cover"
-                  layout="fill"
-                ></Image>
+                <Image width={70} height={70} src="/images/circular.png" alt="instructor" className={styles.circle}></Image>
               </div>
               <p>
                 Digital products are a unique opportunity that today is
@@ -37,13 +31,7 @@ export const SectionEight = () => {
             </div>
             <div className={styles.el}>
               <div className={styles.circle}>
-                <Image
-                  src="/images/circular.png"
-                  className={styles.circle}
-                  alt="instructor"
-                  objectFit="cover"
-                  layout="fill"
-                ></Image>
+                <Image width={70} height={70} src="/images/circular.png" alt="instructor" className={styles.circle}></Image>
               </div>
               <p>
                 Digital products are a unique opportunity that today is
@@ -63,13 +51,7 @@ export const SectionEight = () => {
           <div className={styles.col6}>
             <div className={styles.el}>
               <div className={styles.circle}>
-                <Image
-                  src="/images/circular.png"
-                  className={styles.circle}
-                  alt="instructor"
-                  objectFit="cover"
-                  layout="fill"
-                ></Image>
+                <Image width={70} height={70} src="/images/circular.png" alt="instructor" className={styles.circle}></Image>
               </div>
               <p>
                 Digital products are a unique opportunity that today is
@@ -87,13 +69,7 @@ export const SectionEight = () => {
             </div>
             <div className={styles.el}>
               <div className={styles.circle}>
-                <Image
-                  src="/images/circular.png"
-                  className={styles.circle}
-                  alt="instructor"
-                  objectFit="cover"
-                  layout="fill"
-                ></Image>
+                <Image width={70} height={70} src="/images/circular.png" alt="instructor" className={styles.circle}></Image>
               </div>
               <p>
                 Digital products are a unique opportunity that today is
@@ -112,13 +88,7 @@ export const SectionEight = () => {
           </div>
           <div className={styles.centeredGrid}>
             <div className={styles.circle}>
-                <Image
-                  src="/images/circular.png"
-                  className={styles.circle}
-                  alt="instructor"
-                  objectFit="cover"
-                  layout="fill"
-                ></Image>
+              <Image width={70} height={70} src="/images/circular.png" alt="instructor" className={styles.circle}></Image>
             </div>
             <p>
               Digital products are a unique opportunity that today is

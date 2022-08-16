@@ -12,24 +12,22 @@ export const SectionFive = () => {
       >
         <div className={styles.centeredGrid}>
           <div className={styles.textCenter}>
-            <div className={styles.cover}>
-              <Link href="/payment">
-                <button className={styles.sellBtn}>
-                  <ion-icon name="bag-handle-outline" />
-                  <span>buy the course</span>
-                  <small>
-                    lorem ipsum, dolor sit amet consectetur adipisicing elit
-                  </small>
-                </button>
-              </Link>
-            </div>
+            <Link href="/payment">
+              <button type="button" className={styles.sellBtn}>
+                <ion-icon name="bag-handle-outline" />
+                <span>buy the course</span>
+                <small>
+                  lorem ipsum, dolor sit amet consectetur adipisicing elit
+                </small>
+              </button>
+            </Link>
           </div>
         </div>
         <hr style={{ margin: 10, border: "1px solid rgb(0, 204, 255)" }} />
-        <div className="col-6 extra-gap">
+        <div className={styles.col6}>
           <div className={styles.el}>
             <div className={styles.cover}>
-              <Image layout="fill" src="/images/people.jpg" alt="people"></Image>
+              <Image width={672} height={378} src="/images/people.jpg" alt="people" className={styles.img}></Image>
             </div>
           </div>
           <div className={styles.el}>
@@ -65,7 +63,7 @@ export const SectionFive = () => {
         <div className={styles.col6}>
           <div className={styles.el}>
             <div className={styles.cover}>
-              <Image layout="fill" src="/images/people.jpg" alt="people"></Image>
+              <Image width={672} height={378} src="/images/people.jpg" alt="people" className={styles.img}></Image>
             </div>
           </div>
           <div className={styles.el}>

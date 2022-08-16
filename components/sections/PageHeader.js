@@ -6,8 +6,8 @@ export const PageHeader = () => {
   return (
     <>
       <header className={styles.header}>
-        <div className={styles.cover}>
-          <Image width={160} height={80} src="/images/logo.jpg"></Image>
+        <div>
+          <Image width={160} height={80} src="/images/logo.jpg" alt="logotype"></Image>
         </div>
       </header>
     </>

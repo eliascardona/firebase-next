@@ -10,7 +10,8 @@ export const firebaseApp = initializeApp({
   storageBucket: "eliascardona.appspot.com",
   messagingSenderId: "633991934926",
   appId: "1:633991934926:web:ed87ff0a704a792e4b319f",
-});
+})
+
 export const auth = getAuth(firebaseApp);
 export const firestore = getFirestore(firebaseApp);
 export const firebaseFunctions = getFunctions(firebaseApp);

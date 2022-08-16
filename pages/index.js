@@ -1,8 +1,3 @@
-import { Header } from '../components/utils/Header'
-import { Login } from '../components/vitals/Login'
-import { InfoModal } from '../components/utils/InfoModal'
-import { Landing } from '../components/sections/Landing'
-import LandingPage from '../components/sections/LandingPage'
 import { PageHeader } from '../components/sections/PageHeader'
 import { SectionOne } from '../components/sections/SectionOne'
 import { SectionTwo } from '../components/sections/SectionTwo'
@@ -20,10 +15,6 @@ import { PageFooter } from '../components/sections/PageFooter'
 function Home() {
   return (
     <>
-      {/* <Header login="true" />
-      <InfoModal modalId="login-form" modalTitle="Access to the course">
-        <Login />
-      </InfoModal> */}
       <PageHeader/>
       <SectionOne/>
       <SectionTwo/>
