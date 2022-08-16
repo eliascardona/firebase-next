@@ -11,6 +11,12 @@ ion-icon {
 	font-size: 39px;
 }
 
+@media (min-width: 300px) and (max-width: 479px) {
+  ion-icon {
+    font-size: 20px;
+  }
+}
+
 .iconedbox {
   display: inline-flex;
   align-items: center;
@@ -34,32 +40,4 @@ ion-icon {
   height: 64px;
   font-size: 42px;
   line-height: 1em;
-}
-
-/* Media Query for Small Mobile Devices */
-@media (min-width: 300px) and (max-width: 479px) {
-  .sellBtn {
-    margin: 15px;
-    padding: 10px 20px 7px 20px;
-  }
-  .sellBtn span {
-    font-size: 20px;
-    font-weight: 700;
-    margin-top: 2px;
-    margin-bottom: 4px;
-    display: inline;
-  }
-  .sellBtn small {
-    display: block;
-    margin-top: 5px;
-  }
-  .sellBtn ion-icon {
-    font-size: 20px;
-  }
-  .iconsBox {
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: repeat(12, 8.3%);
-    padding: 0 5px 0 20px;
-  }
 }

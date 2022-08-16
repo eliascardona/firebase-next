@@ -204,10 +204,9 @@
 .footer {
     position: relative;
     bottom: 0 !important;
-    width: 100%;
     padding: 50px 30px 50px 80px;
     color: #fefefe;
-    background-color: #0f0f0f;
+    background-color: #111111;
 }
 
 /* Media Query for Small Mobile Devices */
@@ -233,9 +232,6 @@
 	.sellBtn small {
 		display: block;
 		margin-top: 5px;
-	}
-	.sellBtn ion-icon {
-		font-size: 20px;
 	}
 	.iconsBox {
 		display: grid;
