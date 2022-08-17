@@ -58,16 +58,14 @@ export default function VideoList() {
   return (
     <div className={styles.i2}>
       <div className={styles.specialLine}>
-        <div className="grid">
-          <h5>PROGRESO DEL CURSO</h5>
-          <p> {prog}% </p>
-          <progress
-            className={styles.progressBar}
-            style={{ width: `${prog}` }}
-            max="100"
-            value={`${prog}`}
-          ></progress>
-        </div>
+        <h3>PROGRESO DEL CURSO</h3>
+        <h4> {prog}% </h4>
+        <progress
+          className={styles.progressBar}
+          style={{ width: `${prog}` }}
+          max="100"
+          value={`${prog}`}
+        ></progress>
       </div>
       {videos.map((video) => {
         return (

@@ -12,6 +12,7 @@ export const Login = () => {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     await signInWithEmailAndPassword(auth, email, password);
+    window.location.reload();
   };
 
   return (
@@ -34,7 +35,7 @@ export const Login = () => {
             <button
               type="button"
               onClick={login}
-              className={styles.ctBtn}
+              className={styles.formBtn}
             >
               Login
             </button>          

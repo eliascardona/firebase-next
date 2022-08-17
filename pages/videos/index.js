@@ -59,9 +59,9 @@ const videos = () => {
                 <Image width={576} height={250} src="/images/poster.jpg"></Image>
               </div>
             </div>
-            <h2 className="pl-3 pt-4">Course title</h2>
-            <h3 className="pl-3 pb-2">Course little description</h3>
-            <p className="pl-3">
+            <h2 className={styles.padded}>Course title</h2>
+            <h3 className={styles.padded}>Course little description</h3>
+            <p className={styles.padded}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
               hic officia repellat, animi voluptatum maiores dolorum expedita
               beatae architecto fugit debitis reiciendis vel fuga commodi cumque
@@ -72,16 +72,15 @@ const videos = () => {
             </p>
             <button
               type="button"
-              className="btn btn-dark ml-3 mb-3"
+              className={styles.customBtn}
               onClick={logOut}
             >
               Log out
             </button>
           </div>
           <div className={styles.i2}>
-            <h2 className="pl-3 pb-1 pt-3">Time to study!</h2>
-            <h3 className="pl-3">Some motivation phrase</h3>
-            <div className="divider"></div>
+            <h2 className={styles.padded}>Time to study!</h2>
+            <h3 className={styles.padded}>Some motivation phrase</h3>
             {videos.map((video) => (
               <Link href={`/videos/${video.id}`} key={video.id}>
                 <a style={{ textDecoration: "none", color: "inherit" }}>

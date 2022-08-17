@@ -19,6 +19,21 @@
     width: 100%;
 }
 
+.padded {
+    padding: 4px 0 0 13px;
+}
+
+.customBtn {
+    margin: 5px 0 3px 13px;
+	padding: 10px 50px 10px 50px;
+	border-style: none;
+	border-radius: 15px;
+	color: #fefefe;
+	background-color: #444444;
+    font-size: 16px;
+	font-family: inherit;
+}
+
 .lines {
     display: block;
     margin: 12px;

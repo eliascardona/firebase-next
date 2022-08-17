@@ -52,7 +52,7 @@ export const Signup = ({ setStep }) => {
       />
       <button
         type="button"
-        className={styles.ctBtn}
+        className={styles.formBtn}
         onClick={signUp}
       >
         Sign up
