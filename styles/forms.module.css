@@ -1,0 +1,31 @@
+.input {
+    display: block;
+    margin: 7px 0;
+    padding: 9px 40px 9px 15px;
+    border: 2px solid #eee;
+    border-radius: 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 2px 5px 0px;
+    font-size: 16px;
+}
+
+.ctBtn {
+    margin: 35px;
+	padding: 10px 50px 10px 50px;
+	border-style: none;
+	border-radius: 50px;
+	color: #fefefe;
+	background-color: #444444;
+	font-family: inherit;
+}
+
+.payMsg {
+    display: block;
+    margin: 4px 6px 12px 0;
+}
+
+.centeredGrid {
+    display: grid;
+	place-items: center;
+	justify-self: center;
+	padding: 10px 20px 10px 20px;
+}

@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
-import { Header } from "../components/utils/Header";
+import styles from "../styles/Landing.module.css";
+import { PageHeader } from "../components/sections/PageHeader";
 import { Signup } from "../components/vitals/Signup";
 import { Features } from "../components/utils/Features";
 import { PaymentCompleteElem } from "../components/vitals/PaymentCompleteElem"
@@ -11,32 +12,27 @@ function Payment() {
 
   return (
     <>
-      <Header login="false" />
-      <h3 style={{ padding: "15px 0 20px 12px" }}>Get into the course 😎</h3>
-      <div className="container">
-        <div className="row">
-          <div className="col-12 col-md-6">
-            <Features
-              prodName="Master coding course"
-              price="$97 USD"
-              imgSrc="/images/hero.jpg"
-            />
+      <PageHeader />
+      <div className={styles.col6}>
+        <div className={styles.el}>
+          <h1 style={{ padding: "15px 0 20px 12px" }}>Get into the course!</h1>
+          <Features
+            prodName="Master coding course"
+            price="$97 USD"
+            imgSrc="/images/product.jpg"
+            imgAlt="product image" />
+        </div>
+        <div className={styles.el}>
+          <div ref={signupRef} style={{ display: `${step === 0 ? "block" : "none"}` }} >
+            <Signup setStep={setStep} />
           </div>
-          <div className="col-12 col-md-6">
-
-            <div ref={signupRef} style={{ display: `${step === 0 ? "block" : "none"}` }} >
-              <Signup setStep={setStep} />
-            </div>
-
-            <div ref={paymentRef} style={{ display: `${step === 1 ? "block" : "none"}` }} >
-              <PaymentCompleteElem />
-            </div>
-
+          <div ref={paymentRef} style={{ display: `${step === 1 ? "block" : "none"}` }} >
+            <PaymentCompleteElem />
           </div>
         </div>
       </div>
     </>
-  );
+  )
 }
 
 export default Payment;

@@ -11,6 +11,10 @@ ion-icon {
 	font-size: 39px;
 }
 
+button {
+  cursor: pointer;
+}
+
 @media (min-width: 300px) and (max-width: 479px) {
   ion-icon {
     font-size: 20px;

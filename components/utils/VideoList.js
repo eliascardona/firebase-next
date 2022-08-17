@@ -73,7 +73,7 @@ export default function VideoList() {
         return (
           <Link href={`/videos/${video.id}`} key={`${video.id}`}>
             <a style={{ color: "inherit", textDecoration: "none" }}>
-              <div className={styles.lines}>Lesson {video.id}</div>
+              <div className={styles.lines}>Lesson {video.title}</div>
             </a>
           </Link>
         );

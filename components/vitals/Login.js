@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { auth } from "../../firebase/base";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import styles from "../../styles/forms.module.css";
 
 export const Login = () => {
   const emailRef = useRef();
@@ -14,30 +15,31 @@ export const Login = () => {
   };
 
   return (
-    <div className="container">
-      <div className="row justify-content-center">
-        <h2>Enter your credentials</h2>
-        <input
-          type="email"
-          ref={emailRef}
-          className="form-control mt-2"
-          placeholder="Email"
-        />
-        <input
-          type="password"
-          ref={passwordRef}
-          className="form-control mt-2"
-          placeholder="Password"
-        />
-        <button
-          type="button"
-          onClick={login}
-          data-dismiss="modal"
-          className="btn btn-dark btn-block mt-3 mb-3"
-        >
-          Login
-        </button>
+    <>
+      <div className={styles.centeredGrid}>
+        <div>
+          <h2>Enter your credentials</h2>
+            <input
+              type="email"
+              ref={emailRef}
+              placeholder="Email"
+              className={styles.input}
+            />
+            <input
+              type="password"
+              ref={passwordRef}
+              placeholder="Password"
+              className={styles.input}
+            />
+            <button
+              type="button"
+              onClick={login}
+              className={styles.ctBtn}
+            >
+              Login
+            </button>          
+        </div>
       </div>
-    </div>
+    </>
   );
 };

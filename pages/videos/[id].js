@@ -47,7 +47,7 @@ export default function Details() {
 
   return (
     <>
-      <Header login="false" />
+      <Header />
       <div className={styles.grid}>
         <div className={styles.i1}>
           <div className={styles.videoWrapper}>
