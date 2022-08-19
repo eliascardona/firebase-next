@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import styles from "../../styles/forms.module.css";
 import {
   PaymentElement,
   useStripe,
@@ -79,7 +80,7 @@ export default function PaymentForm() {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: `${window.location.origin}/success`,
+        return_url: `${window.location.origin}/thnaks`,
         payment_method_data: {
           billing_details: {
             email: userEmail,
@@ -103,11 +104,11 @@ export default function PaymentForm() {
         <button
           type="submit"
           disabled={!stripe || !userEmail}
-          className="btn btn-dark btn-block mt-3"
+          className={styles.formBtn}
         >
           Pay now
         </button>
       )}
     </form>
-  );
+  )
 }

@@ -1,14 +1,3 @@
-.header {
-	position: relative;
-	top: 0;
-	padding: 20px 1rem 20px 1rem;
-	color: #fff;
-	background-color: #000;
-	display: grid;
-	place-items: center;
-	border-bottom: 3px solid rgb(0, 204, 255);
-}
-
 .introSection {
 	color: #fefefe;
 	background-color: #181818;
@@ -130,12 +119,6 @@
 	padding: 20px;
 }
 
-.col6 .extra-gap {
-	column-gap: 25px;
-	padding-top: 50px;
-	padding-bottom: 20px;
-}
-
 .el {
 	display: grid;
 	place-items: center;
@@ -201,14 +184,6 @@
 	background-color: #0a0a0a;
 }
 
-.footer {
-    position: relative;
-    bottom: 0 !important;
-    padding: 50px 30px 50px 80px;
-    color: #fefefe;
-    background-color: #111111;
-}
-
 /* Media Query for Small Mobile Devices */
 @media (min-width: 300px) and (max-width: 479px) {
     .col6 {
@@ -246,9 +221,6 @@
     .col6 {
         grid-template-columns: 100%;
     }
-	.underlineCol {
-        grid-template-columns: 100%;
-    }
 	.iconsBox {
 		display: grid;
 		grid-template-columns: 100%;
@@ -263,17 +235,11 @@
     .col6 {
         grid-template-columns: 100%;
     }
-	.underlineCol {
-        grid-template-columns: 100%;
-    }
 }
 
 /* Media Query for Tablets Ipads portrait mode */
 @media (min-width: 781px) and (max-width: 1024px) {
     .col6 {
-        grid-template-columns: 50% 50%;
-    }
-	.underlineCol {
         grid-template-columns: 50% 50%;
     }
 }
@@ -283,17 +249,11 @@
     .col6 {
         grid-template-columns: 50% 50%;
     }
-	.underlineCol {
-        grid-template-columns: 50% 50%;
-    }
 }
  
 /* Media Query for Large screens */
 @media (min-width: 1281px) {
     .col6 {
-        grid-template-columns: 50% 50%;
-    }
-	.underlineCol {
         grid-template-columns: 50% 50%;
     }
 }

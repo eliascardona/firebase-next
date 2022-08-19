@@ -1,10 +1,18 @@
 import React from "react";
-import styles from "../../styles/Landing.module.css";
 
 export const PageFooter = () => {
+
+  const footerStyles={
+    position: 'relative',
+    bottom: '0 !important',
+    padding: '50px 30px 50px 80px',
+    color: '#fefefe',
+    backgroundColor: '#111111'
+  }
+
   return (
     <>
-      <div className={styles.footer}>
+      <div style={footerStyles}>
         <p>© 2022. Elías Cardona</p>
       </div>
     </>
