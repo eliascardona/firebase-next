@@ -80,7 +80,7 @@ export default function PaymentForm() {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: `${window.location.origin}/thnaks`,
+        return_url: `${window.location.origin}/thanks`,
         payment_method_data: {
           billing_details: {
             email: userEmail,
