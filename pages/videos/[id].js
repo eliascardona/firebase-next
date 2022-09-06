@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Header } from "../../components/utils/Header";
 import VideoList from "../../components/utils/VideoList";
+import InputList from "../../components/utils/InputList";
 import styles from "../../styles/id.module.css";
 import { useRouter } from "next/router";
 import YouTube from "react-youtube";
@@ -64,8 +65,12 @@ export default function Details() {
               mollitia!
             </p>
           </div>
+          <InputList quizCollection="lesson1" />
+          <InputList quizCollection="lesson2" />
         </div>
-        <VideoList />
+        <div className={styles.i2}>
+          <VideoList />
+        </div>
       </div>
     </>
   );

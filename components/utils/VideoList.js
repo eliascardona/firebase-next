@@ -4,11 +4,11 @@ import Link from "next/link";
 import { firestore, auth } from "../../firebase/base";
 import {
   collection,
-  getDoc,
   doc,
   getDocs,
   onSnapshot,
 } from "firebase/firestore";
+
 import { onAuthStateChanged } from "firebase/auth";
 
 export default function VideoList() {
@@ -52,11 +52,11 @@ export default function VideoList() {
   }, [userEmail]);
 
   useEffect(() => {
-    setProg((views.length * 100) / videos.length);
+    setProg((views.length*100)/videos.length);
   }, [videos, views]);
 
   return (
-    <div className={styles.i2}>
+    <>
       <div className={styles.specialLine}>
         <h3>PROGRESO DEL CURSO</h3>
         <h4> {prog}% </h4>
@@ -76,6 +76,6 @@ export default function VideoList() {
           </Link>
         );
       })}
-    </div>
+    </>
   );
 }

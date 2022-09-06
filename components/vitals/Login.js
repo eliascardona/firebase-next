@@ -17,30 +17,26 @@ export const Login = () => {
 
   return (
     <>
-      <div className={styles.centeredGrid}>
-        <div>
-          <h2>Enter your credentials</h2>
-            <input
-              type="email"
-              ref={emailRef}
-              placeholder="Email"
-              className={styles.input}
-            />
-            <input
-              type="password"
-              ref={passwordRef}
-              placeholder="Password"
-              className={styles.input}
-            />
-            <button
-              type="button"
-              onClick={login}
-              className={styles.formBtn}
-            >
-              Login
-            </button>          
-        </div>
-      </div>
+      <h2>Enter your credentials</h2>
+        <input
+          type="email"
+          ref={emailRef}
+          placeholder="Email"
+          className={styles.input}
+        />
+        <input
+          type="password"
+          ref={passwordRef}
+          placeholder="Password"
+          className={styles.input}
+        />
+        <button
+          type="button"
+          onClick={login}
+          className={styles.formBtn}
+        >
+          Login
+        </button>
     </>
-  );
-};
+  )
+}

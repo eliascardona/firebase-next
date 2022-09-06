@@ -34,6 +34,21 @@
 	font-family: inherit;
 }
 
+.centeredGrid {
+    display: grid;
+	place-items: center;
+	justify-self: center;
+	padding: 10px 20px 10px 20px;
+}
+
+.cardWhite {
+	margin: 30px 30px 60px 30px;
+	padding: 20px;
+	color: #0a0a0a;
+	background-color: #fefefe;
+	border-radius: 6px;
+}
+
 .lines {
     display: block;
     margin: 12px;

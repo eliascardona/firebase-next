@@ -46,6 +46,13 @@
     border-bottom-right-radius: 6px;
 }
 
+.centeredGrid {
+    display: grid;
+	place-items: center;
+	justify-self: center;
+	padding: 10px 20px 10px 20px;
+}
+
 .line {
     display: block;
     margin-top: 5px;

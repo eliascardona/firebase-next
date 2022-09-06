@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "../../styles/PremiumView.module.css";
+import styles from "../../styles/videos.module.css";
 import { Header } from "../../components/utils/Header";
 import { Login } from "../../components/vitals/Login";
 import { firestore, auth } from "../../firebase/base";
-import { collection, getDocs } from "firebase/firestore";
+import { arrayUnion, doc, getDoc, updateDoc, collection, getDocs } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import { signOut } from "firebase/auth";
 
@@ -45,11 +45,21 @@ const videos = () => {
     window.location.reload();
   };
 
+  // const onEnterVideo = async () => {
+  //   await updateDoc(doc(firestore, `users/${userEmail}`), {
+  //     done: "yes",
+  //   });
+  // };
+  
   return (
     <>
       <Header />
       <div ref={loginRef} style={{display:'none'}}>
-        <Login />
+        <div className={styles.centeredGrid}>
+          <div className={styles.cardWhite}>
+            <Login />
+          </div>          
+        </div>
       </div>
       <div ref={appRef} style={{display:'none'}}>
         <div className={styles.grid}>
