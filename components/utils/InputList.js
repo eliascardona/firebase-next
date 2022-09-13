@@ -1,13 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "../../styles/VideoList.module.css";
-import Link from "next/link";
 import { firestore, auth } from "../../firebase/base";
-import {
-  collection,
-  doc,
-  getDocs,
-  onSnapshot,
-} from "firebase/firestore";
+import { collection, doc, getDocs, onSnapshot } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 
 export default function InputList({quizCollection}) {
@@ -50,7 +44,7 @@ export default function InputList({quizCollection}) {
     if (userEmail) fetchData();
   }, [userEmail]);
 
-  const reactQuiz = () => {
+  function reactQuiz() {
     inputs.map(item => {
       return (
         <>
@@ -58,32 +52,24 @@ export default function InputList({quizCollection}) {
           <label>{item.res1}</label>
           <input 
             type="radio"
-            // ref={childRef}
-            placeholder="Tu respuesta"
             value={item.res1}
             className={styles.input}
           />
           <label>{item.res2}</label>
           <input 
             type="radio"
-            // ref={childRef}
-            placeholder="Tu respuesta"
             value={item.res2}
             className={styles.input}
           />
           <label>{item.res3}</label>
           <input 
             type="radio"
-            // ref={childRef}
-            placeholder="Tu respuesta"
             value={item.res3}
             className={styles.input}
           />
           <label>{item.res4}</label>
           <input 
             type="radio"
-            // ref={childRef}
-            placeholder="Tu respuesta"
             value={item.res4}
             className={styles.input}
           />
@@ -116,7 +102,7 @@ export default function InputList({quizCollection}) {
   return (
     <>
       <div className={styles.quizBox}>
-        
+        {reactQuiz()}
       </div>
     </>
   );

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Header } from "../../components/utils/Header";
 import VideoList from "../../components/utils/VideoList";
-import InputList from "../../components/utils/InputList";
+// import InputList from "../../components/utils/InputList";
+import InputObject from "../../components/utils/InputObject";
 import styles from "../../styles/id.module.css";
 import { useRouter } from "next/router";
 import YouTube from "react-youtube";
@@ -45,6 +46,26 @@ export default function Details() {
       viewed: arrayUnion(videoId),
     });
   };
+  
+  const quiz1 = {
+    pregunta: "Quiz 1. Choose an option",
+    res1: "lala",
+    res2: "lalo",
+    res3: "lale",
+    res4: "lelo",
+    resCorr: "lala",
+    visibility: true
+  }
+  
+  const quiz2 = {
+    pregunta: "Quiz 2. Choose an option",
+    res1: "lala",
+    res2: "lalo",
+    res3: "lale",
+    res4: "lelo",
+    resCorr: "lalo",
+    visibility: true
+  }
 
   return (
     <>
@@ -65,8 +86,8 @@ export default function Details() {
               mollitia!
             </p>
           </div>
-          <InputList quizCollection="lesson1" />
-          <InputList quizCollection="lesson2" />
+          <InputObject quiz={quiz1} />
+          <InputObject quiz={quiz2} />
         </div>
         <div className={styles.i2}>
           <VideoList />
