@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Header } from "../../components/utils/Header";
 import VideoList from "../../components/utils/VideoList";
-// import InputList from "../../components/utils/InputList";
 import InputObject from "../../components/utils/InputObject";
 import styles from "../../styles/id.module.css";
 import { useRouter } from "next/router";
 import YouTube from "react-youtube";
 import { auth, firestore } from "../../firebase/base";
-import { arrayUnion, doc, getDoc, updateDoc } from "firebase/firestore";
+import {
+  arrayUnion,
+  collection,
+  doc,
+  getDocs,
+  updateDoc,
+} from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 
 export default function Details() {
@@ -15,7 +20,10 @@ export default function Details() {
   const [videoId, setVideoId] = useState("");
   const { id } = router.query;
   const [userEmail, setUserEmail] = useState("");
-
+  const [quizzes, setQuizzes] = useState([]);
+  // currStp=3;
+  const [step, setStep] = useState(3);
+  
   useEffect(() => {
     const checkUserEmail = () => {
       onAuthStateChanged(auth, (user) => {
@@ -28,11 +36,20 @@ export default function Details() {
   });
 
   useEffect(() => {
-    const getVideo = async () => {
-      const coll = await getDoc(doc(firestore, `videos/${id}`));
-      setVideoId(id);
+    const getQuizzes = async () => {
+      const quizzesColl = await getDocs(collection(firestore, `quizzes`));
+      const quizzesDocs = quizzesColl.docs;
+      const tempQuizzes = [];
+      quizzesDocs.forEach((quiz) => {
+        tempQuizzes.push(quiz.data());
+      });
+      tempQuizzes = tempQuizzes.filter(tempQuiz =>
+        tempQuiz.videos.includes(id)
+      );
+      setQuizzes(tempQuizzes);
     };
-    getVideo();
+    setVideoId(id);
+    getQuizzes();
   }, [id]);
 
   const opts = {
@@ -46,26 +63,6 @@ export default function Details() {
       viewed: arrayUnion(videoId),
     });
   };
-  
-  const quiz1 = {
-    pregunta: "Quiz 1. Choose an option",
-    res1: "lala",
-    res2: "lalo",
-    res3: "lale",
-    res4: "lelo",
-    resCorr: "lala",
-    visibility: true
-  }
-  
-  const quiz2 = {
-    pregunta: "Quiz 2. Choose an option",
-    res1: "lala",
-    res2: "lalo",
-    res3: "lale",
-    res4: "lelo",
-    resCorr: "lalo",
-    visibility: true
-  }
 
   return (
     <>
@@ -76,6 +73,7 @@ export default function Details() {
             <YouTube videoId={id} opts={opts} onEnd={onVideoEnd} />
           </div>
           <div className={styles.line}>
+            <h3>In this lesson...</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
               hic officia repellat, animi voluptatum maiores dolorum expedita
@@ -86,13 +84,38 @@ export default function Details() {
               mollitia!
             </p>
           </div>
-          <InputObject quiz={quiz1} />
-          <InputObject quiz={quiz2} />
+          <div className={styles.line}>
+            {
+              quizzes.map(quiz => (
+                <div style={{display:`${ step===step ? 'block' : 'none' }`}}>
+
+                  <InputObject quiz={quiz} setStep={setStep} />
+
+                  <button
+                    type="button"
+                    className={styles.formBtn}
+                    onClick={setStep(stp=>stp-1)}
+                  >
+                    <ion-icon name="arrow-back-outline"></ion-icon>
+                  </button>
+
+                  <button
+                    type="button"
+                    className={styles.formBtn}
+                    onClick={setStep(stp=>stp+1)}
+                  >
+                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                  </button>
+
+                </div>
+              ))
+            }
+          </div>
         </div>
         <div className={styles.i2}>
           <VideoList />
         </div>
       </div>
     </>
-  );
+  )
 }

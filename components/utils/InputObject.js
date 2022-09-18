@@ -1,44 +1,67 @@
-import React, { useEffect, useState } from "react";
-import styles from "../../styles/VideoList.module.css";
-// import { firestore, auth } from "../../firebase/base";
-// import { collection, doc, getDocs, onSnapshot } from "firebase/firestore";
-// import { onAuthStateChanged } from "firebase/auth";
+import React, { useState } from "react";
+import styles from "../../styles/forms.module.css";
 
-export default function InputList({ quiz }) {
-    const marginLeft = {
-        marginLeft:'5px'
+export default function InputList({ quiz, setStep }) {
+  const [ans, setAns] = useState("");
+  const [message, setMessage] = useState("");
+
+  const checkAnswer = () => {
+    if (ans === quiz.resCorr) {
+      setMessage("Correct answer");
+    } else {
+      setMessage("Wrong answer. Try again");
     }
-    
-    return (
-        <>
-            <div className={styles.quizBox}>
-                <h3>{quiz.pregunta}</h3>
+  };
 
-                <div style={{ display: `${ quiz.visibility===true ? 'block' : 'none' }` }}>
-                    <input type="radio" value={quiz.res1}/>
-                    <label style={marginLeft}>{quiz.res1}</label>
-                    <br/>
-                </div>
+  return (
+    <>
+      <h3>{quiz.pregunta}</h3>
 
-                <div style={{ display: `${ quiz.visibility===true ? 'block' : 'none' }` }}>
-                    <input type="radio" value={quiz.res2}/>
-                    <label style={marginLeft}>{quiz.res2}</label>
-                    <br/>
-                </div>
+      <label className={styles.radio}>
+        <input
+          type="radio"
+          value={quiz.res1}
+          name="quiz"
+          onChange={() => setAns(quiz.res1)}
+        />
+        {quiz.res1}
+      </label>
 
-                <div style={{ display: `${ quiz.visibility===true ? 'block' : 'none' }` }}>
-                    <input type="radio" value={quiz.res3}/>
-                    <label style={marginLeft}>{quiz.res3}</label>
-                    <br/>
-                </div>
+      <label className={styles.radio}>
+        <input
+          type="radio"
+          value={quiz.res2}
+          name="quiz"
+          onChange={() => setAns(quiz.res2)}
+        />
+        {quiz.res2}
+      </label>
 
-                <div style={{ display: `${ quiz.visibility===true ? 'block' : 'none' }` }}>
-                    <input type="radio" value={quiz.res4}/>
-                    <label style={marginLeft}>{quiz.res4}</label>
-                    <br/>
-                </div>
+      <label className={styles.radio}>
+        <input
+          type="radio"
+          value={quiz.res3}
+          name="quiz"
+          onChange={() => setAns(quiz.res3)}
+        />
+        {quiz.res3}
+      </label>
 
-            </div>
-        </>
-    );
+      <label className={styles.radio}>
+        <input
+          type="radio"
+          value={quiz.res4}
+          name="quiz"
+          onChange={() => setAns(quiz.res4)}
+        />
+        {quiz.res4}
+      </label>
+
+      <button type="button" className={styles.formBtn} onClick={checkAnswer}>
+        Check answer
+      </button>
+
+      <div>{message}</div>
+    </>
+  )
 }

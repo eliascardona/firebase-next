@@ -5,7 +5,7 @@ import styles from "../../styles/videos.module.css";
 import { Header } from "../../components/utils/Header";
 import { Login } from "../../components/vitals/Login";
 import { firestore, auth } from "../../firebase/base";
-import { arrayUnion, doc, getDoc, updateDoc, collection, getDocs } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import { signOut } from "firebase/auth";
 
@@ -58,7 +58,7 @@ const videos = () => {
         <div className={styles.centeredGrid}>
           <div className={styles.cardWhite}>
             <Login />
-          </div>          
+          </div>
         </div>
       </div>
       <div ref={appRef} style={{display:'none'}}>

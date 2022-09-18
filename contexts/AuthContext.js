@@ -25,7 +25,7 @@ export function AuthProvider({ children }) {
     const handle = setInterval(async () => {
       const user = auth.currentUser;
       if (user) await user.getIdToken(true);
-    }, 10 * 60 * 1000);
+    }, 10*60*1000);
 
     // clean up setInterval
     return () => clearInterval(handle);
