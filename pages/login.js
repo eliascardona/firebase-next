@@ -7,7 +7,7 @@ function login() {
     <>
       <div className={styles.centeredGrid}>
         <div className={styles.cardWhite}>
-          <Login />
+          <Login href="/videos" />
         </div>
       </div>
     </>

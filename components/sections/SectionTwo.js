@@ -6,7 +6,7 @@ export const SectionTwo = () => {
     <>
       <div className={styles.iconsBox}>
         <div className={styles.el}></div>
-        <div className={styles.el} style={{ marginBottom: 5 }}>
+        <div className={styles.el} style={{ marginBottom: '5px' }}>
           <h2 style={{ color: "rgb(0, 204, 255)" }}>Amazing features</h2>
         </div>
         <div className={styles.el} style={{ margin: "30px 0 0 0" }}>

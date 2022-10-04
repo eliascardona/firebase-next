@@ -21,9 +21,8 @@ export default function Details() {
   const { id } = router.query;
   const [userEmail, setUserEmail] = useState("");
   const [quizzes, setQuizzes] = useState([]);
-  // currStp=3;
-  const [step, setStep] = useState(3);
-  
+  const [step, setStep] = useState(0);
+
   useEffect(() => {
     const checkUserEmail = () => {
       onAuthStateChanged(auth, (user) => {
@@ -43,7 +42,7 @@ export default function Details() {
       quizzesDocs.forEach((quiz) => {
         tempQuizzes.push(quiz.data());
       });
-      tempQuizzes = tempQuizzes.filter(tempQuiz =>
+      tempQuizzes = tempQuizzes.filter((tempQuiz) =>
         tempQuiz.videos.includes(id)
       );
       setQuizzes(tempQuizzes);
@@ -85,31 +84,27 @@ export default function Details() {
             </p>
           </div>
           <div className={styles.line}>
-            {
-              quizzes.map(quiz => (
-                <div style={{display:`${ step===step ? 'block' : 'none' }`}}>
+            {quizzes.map((quiz, i) => (
+              <div style={{ display: `${step === i ? "block" : "none"}` }}>
+                <InputObject quiz={quiz} />
 
-                  <InputObject quiz={quiz} setStep={setStep} />
+                <button
+                  type="button"
+                  className={styles.formBtn}
+                  onClick={() => setStep((stp) => stp - 1)}
+                >
+                  <ion-icon name="arrow-back-outline"></ion-icon>
+                </button>
 
-                  <button
-                    type="button"
-                    className={styles.formBtn}
-                    onClick={setStep(stp=>stp-1)}
-                  >
-                    <ion-icon name="arrow-back-outline"></ion-icon>
-                  </button>
-
-                  <button
-                    type="button"
-                    className={styles.formBtn}
-                    onClick={setStep(stp=>stp+1)}
-                  >
-                    <ion-icon name="arrow-forward-outline"></ion-icon>
-                  </button>
-
-                </div>
-              ))
-            }
+                <button
+                  type="button"
+                  className={styles.formBtn}
+                  onClick={() => setStep((stp) => stp + 1)}
+                >
+                  <ion-icon name="arrow-forward-outline"></ion-icon>
+                </button>
+              </div>
+            ))}
           </div>
         </div>
         <div className={styles.i2}>
@@ -117,5 +112,5 @@ export default function Details() {
         </div>
       </div>
     </>
-  )
+  );
 }

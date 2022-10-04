@@ -2,8 +2,10 @@ import React, { useRef } from "react";
 import { auth } from "../../firebase/base";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import styles from "../../styles/forms.module.css";
+import { useRouter } from "next/router";
 
-export const Login = () => {
+export const Login = ({ href }) => {
+  const router = useRouter();
   const emailRef = useRef();
   const passwordRef = useRef();
 
@@ -12,7 +14,7 @@ export const Login = () => {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     await signInWithEmailAndPassword(auth, email, password);
-    window.location.reload();
+    router.push(href);
   };
 
   return (

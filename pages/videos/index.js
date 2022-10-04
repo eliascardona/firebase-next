@@ -41,15 +41,9 @@ const videos = () => {
   }, []);
 
   const logOut = async () => {
-    await signOut();
+    await signOut(auth);
     window.location.reload();
   };
-
-  // const onEnterVideo = async () => {
-  //   await updateDoc(doc(firestore, `users/${userEmail}`), {
-  //     done: "yes",
-  //   });
-  // };
   
   return (
     <>
