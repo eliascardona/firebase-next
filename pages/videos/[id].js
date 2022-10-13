@@ -11,6 +11,7 @@ import {
   collection,
   doc,
   getDocs,
+  getDoc,
   updateDoc,
 } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
@@ -22,7 +23,16 @@ export default function Details() {
   const [userEmail, setUserEmail] = useState("");
   const [quizzes, setQuizzes] = useState([]);
   const [step, setStep] = useState(0);
-
+  const [goodAnswersDoc, setGoodAnswersDoc] = useState({
+    // email:"",
+    // id:"",
+    // nombre:"",
+    // viewedArr:[""],
+    goodAnswersArr:[""],
+  });
+  const [quizIterator, setQuizIterator] = useState(0);
+  const [quizLength, setQuizLength] = useState(0);
+  
   useEffect(() => {
     const checkUserEmail = () => {
       onAuthStateChanged(auth, (user) => {
@@ -42,15 +52,18 @@ export default function Details() {
       quizzesDocs.forEach((quiz) => {
         tempQuizzes.push(quiz.data());
       });
-      tempQuizzes = tempQuizzes.filter((tempQuiz) =>
-        tempQuiz.videos.includes(id)
-      );
+      tempQuizzes = tempQuizzes.filter((tempQuiz, i, arr) => {        
+        tempQuiz.videos.includes(id);
+        setQuizIterator(i);
+        let length = arr.length;
+        setQuizLength(length);
+      });
       setQuizzes(tempQuizzes);
     };
     setVideoId(id);
     getQuizzes();
   }, [id]);
-
+  
   const opts = {
     playerVars: {
       frameborder: 0,
@@ -62,7 +75,20 @@ export default function Details() {
       viewed: arrayUnion(videoId),
     });
   };
-
+  
+  // useEffect(() => {
+  //   const getGoods = async () => {
+  //     const docRef = doc(firestore, `users/${userEmail}`);
+  //     const docSnap = await getDoc(docRef);
+  //     if (docSnap.exists()) {
+  //       setGoodAnswersDoc({
+  //         goodAnswersArr: docSnap.data().goodAnswers
+  //       });
+  //     }
+  //   };
+  //   getGoods();
+  // }, []);
+  
   return (
     <>
       <Header />
@@ -83,29 +109,28 @@ export default function Details() {
               mollitia!
             </p>
           </div>
-          <div className={styles.line}>
-            {quizzes.map((quiz, i) => (
-              <div style={{ display: `${step === i ? "block" : "none"}` }}>
-                <InputObject quiz={quiz} />
+          <div className={styles.lineLg}>
+            {quizzes.map((quiz, i) => {
+              quizLength.length-1 === quizIterator ? `Congrats. You got 2 good answers` : (
+                <div style={{ display: `${step === i ? "block" : "none"}` }}>
+                  <InputObject quiz={quiz} />
+                  <button type="button" className={styles.formBtn} onClick={() => setStep((stp) => stp - 1)}>
+                    <ion-icon name="arrow-back-outline"></ion-icon>
+                  </button>
 
-                <button
-                  type="button"
-                  className={styles.formBtn}
-                  onClick={() => setStep((stp) => stp - 1)}
-                >
-                  <ion-icon name="arrow-back-outline"></ion-icon>
-                </button>
+                  <button type="button" className={styles.formBtn} onClick={() => setStep((stp) => stp + 1)}>
+                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                  </button>
 
-                <button
-                  type="button"
-                  className={styles.formBtn}
-                  onClick={() => setStep((stp) => stp + 1)}
-                >
-                  <ion-icon name="arrow-forward-outline"></ion-icon>
-                </button>
-              </div>
-            ))}
+                </div>
+              )
+              })}
           </div>
+          {/* <div className={styles.lineLg}>
+            {
+              quizLength.length-1 === quizIterator ? `Congrats. You got 2 good answers` : ""
+            }
+          </div> */}
         </div>
         <div className={styles.i2}>
           <VideoList />

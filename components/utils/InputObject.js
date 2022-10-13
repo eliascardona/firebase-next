@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "../../styles/forms.module.css";
 import { auth, firestore } from "../../firebase/base";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 
 export default function InputList({ quiz }) {
@@ -15,7 +15,7 @@ export default function InputList({ quiz }) {
       setUserEmail(user.email);
     }
   });
-  const docRef = doc(firestore, userEmail, "goodAnswers");
+  const docRef = doc(firestore, `users/${userEmail}`);
   
   const checkAnswer = () => {
     if(ans === quiz.resCorr) {
@@ -27,8 +27,7 @@ export default function InputList({ quiz }) {
       console.log(dataObj);
       //just for set an 'async-await'
       (async function() {
-        await updateDoc(docRef, dataObj);
-        
+        await updateDoc(docRef, dataObj);        
       })();
       //...
     } else {
