@@ -11,41 +11,16 @@ a {
   color: rgb(0, 108, 250);
 }
 
-ion-icon {
-	font-size: 39px;
-}
-
 button {
   cursor: pointer;
 }
 
-@media (min-width: 300px) and (max-width: 479px) {
+ion-icon {
+	font-size: 39px;
+}
+
+@media (min-width: 300px) and (max-width: 679px) {
   ion-icon {
     font-size: 20px;
   }
-}
-
-.iconedbox {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  line-height: 1em;
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
-}
-
-.iconedbox.iconedbox-sm {
-  width: 26px;
-  height: 26px;
-  font-size: 18px;
-  line-height: 1em;
-}
-
-.iconedbox.iconedbox-lg {
-  width: 64px;
-  height: 64px;
-  font-size: 42px;
-  line-height: 1em;
 }
