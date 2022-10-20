@@ -17,11 +17,22 @@
     margin: 5px;
 	padding: 10px 50px 10px 50px;
 	border-style: none;
-	border-radius: 15px;
+	border-radius: 7px;
 	color: #fefefe;
 	background-color: #444444;
     font-size: 16px;
 	font-family: inherit;
+}
+
+.quizBtn {
+    padding: 0 40px;
+    margin-top: 10px;
+	border-style: none;
+	border-radius: 7px;
+    font-size: 12px;
+	font-family: inherit;
+    background-color: #f0f0f0;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 2px 5px 0px;
 }
 
 .payMsg {

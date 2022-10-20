@@ -13,7 +13,7 @@ export const SectionOne = () => {
             <h2>Super stunning subtitle for sell your infoproduct</h2>
             <div className={styles.videoWrapper}>
               <iframe
-                src="https://www.youtube.com/embed/fFzJ-cq5VOg"
+                src="https://www.youtube.com/embed/5vNYuffFuqA"
                 frameBorder={0}
               />
             </div>

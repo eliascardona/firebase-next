@@ -11,7 +11,6 @@ import {
   collection,
   doc,
   getDocs,
-  getDoc,
   updateDoc,
 } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
@@ -23,16 +22,10 @@ export default function Details() {
   const [userEmail, setUserEmail] = useState("");
   const [quizzes, setQuizzes] = useState([]);
   const [step, setStep] = useState(0);
-  const [goodAnswersDoc, setGoodAnswersDoc] = useState({
-    // email:"",
-    // id:"",
-    // nombre:"",
-    // viewedArr:[""],
-    goodAnswersArr:[""],
-  });
+  const [goodAns, setGoodAns] = useState([]);
   const [quizIterator, setQuizIterator] = useState(0);
   const [quizLength, setQuizLength] = useState(0);
-  
+
   useEffect(() => {
     const checkUserEmail = () => {
       onAuthStateChanged(auth, (user) => {
@@ -52,18 +45,21 @@ export default function Details() {
       quizzesDocs.forEach((quiz) => {
         tempQuizzes.push(quiz.data());
       });
-      tempQuizzes = tempQuizzes.filter((tempQuiz, i, arr) => {        
-        tempQuiz.videos.includes(id);
-        setQuizIterator(i);
-        let length = arr.length;
-        setQuizLength(length);
+      tempQuizzes = tempQuizzes.filter((tempQuiz, i, arr) => {
+        if (tempQuiz.videos.includes(id)) {
+          setQuizIterator(i);
+          let length = arr.length;
+          setQuizLength(length);
+          return true;
+        }
+        return false;
       });
       setQuizzes(tempQuizzes);
     };
     setVideoId(id);
     getQuizzes();
   }, [id]);
-  
+
   const opts = {
     playerVars: {
       frameborder: 0,
@@ -75,20 +71,11 @@ export default function Details() {
       viewed: arrayUnion(videoId),
     });
   };
-  
-  // useEffect(() => {
-  //   const getGoods = async () => {
-  //     const docRef = doc(firestore, `users/${userEmail}`);
-  //     const docSnap = await getDoc(docRef);
-  //     if (docSnap.exists()) {
-  //       setGoodAnswersDoc({
-  //         goodAnswersArr: docSnap.data().goodAnswers
-  //       });
-  //     }
-  //   };
-  //   getGoods();
-  // }, []);
-  
+
+  const addToGoodAns = async (newGoodAns) => {
+    setGoodAns((prev) => [...prev, newGoodAns]);
+  };
+
   return (
     <>
       <Header />
@@ -111,26 +98,40 @@ export default function Details() {
           </div>
           <div className={styles.lineLg}>
             {quizzes.map((quiz, i) => {
-              quizLength.length-1 === quizIterator ? `Congrats. You got 2 good answers` : (
+              return quizLength.length - 1 === quizIterator ? (
+                `Quiz`
+              ) : (
                 <div style={{ display: `${step === i ? "block" : "none"}` }}>
-                  <InputObject quiz={quiz} />
-                  <button type="button" className={styles.formBtn} onClick={() => setStep((stp) => stp - 1)}>
-                    <ion-icon name="arrow-back-outline"></ion-icon>
+                  <InputObject quiz={quiz} addToGoodAns={addToGoodAns} />
+                  <button
+                    type="button"
+                    className={styles.formBtn}
+                    onClick={() => setStep((stp) => stp - 1)}
+                  >
+                    <ion-icon name="arrow-back-outline" style={{ fontSize:24 }}></ion-icon>
                   </button>
 
-                  <button type="button" className={styles.formBtn} onClick={() => setStep((stp) => stp + 1)}>
-                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                  <button
+                    type="button"
+                    className={styles.formBtn}
+                    onClick={() => setStep((stp) => stp + 1)}
+                  >
+                    <ion-icon name="arrow-forward-outline" style={{ fontSize:24 }}></ion-icon>
                   </button>
-
                 </div>
-              )
-              })}
+              );
+            })}
           </div>
-          {/* <div className={styles.lineLg}>
-            {
-              quizLength.length-1 === quizIterator ? `Congrats. You got 2 good answers` : ""
-            }
-          </div> */}
+          {quizzes.length === step && (
+            <div className={styles.lineLg}>
+              You got following correct answers:
+              <ol>
+                {goodAns.map((g) => (
+                  <li>{g}</li>
+                ))}
+              </ol>
+            </div>
+          )}
         </div>
         <div className={styles.i2}>
           <VideoList />

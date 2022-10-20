@@ -46,6 +46,17 @@
     border-bottom-right-radius: 6px;
 }
 
+.formBtn {
+    padding: 0 40px;
+    margin: 15px 7px 0;
+	border-style: none;
+	border-radius: 7px;
+    font-size: 12px;
+	font-family: inherit;
+    background-color: #f0f0f0;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 2px 5px 0px;
+}
+
 .centeredGrid {
     display: grid;
 	place-items: center;

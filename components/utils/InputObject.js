@@ -1,35 +1,14 @@
 import React, { useState } from "react";
 import styles from "../../styles/forms.module.css";
-import { auth, firestore } from "../../firebase/base";
-import { doc, updateDoc } from "firebase/firestore";
-import { onAuthStateChanged } from "firebase/auth";
 
-export default function InputList({ quiz }) {
+export default function InputList({ quiz, addToGoodAns }) {
   const [ans, setAns] = useState("");
   const [message, setMessage] = useState("");
-  const [userEmail, setUserEmail] = useState("");
-  const goodAnswerArr = [];
-  
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      setUserEmail(user.email);
-    }
-  });
-  const docRef = doc(firestore, `users/${userEmail}`);
-  
+
   const checkAnswer = () => {
-    if(ans === quiz.resCorr) {
+    if (ans === quiz.resCorr) {
       setMessage("Correct answer");
-      goodAnswerArr.push(quiz.resCorr);
-      let dataObj = {
-        goodAnswers: goodAnswerArr
-      }
-      console.log(dataObj);
-      //just for set an 'async-await'
-      (async function() {
-        await updateDoc(docRef, dataObj);        
-      })();
-      //...
+      addToGoodAns(quiz.resCorr);
     } else {
       setMessage("Wrong answer. Try again");
     }
