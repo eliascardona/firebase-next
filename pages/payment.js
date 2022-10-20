@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import styles from "../styles/Landing.module.css";
+import styles from "../styles/payment.module.css";
 import { PageHeader } from "../components/sections/PageHeader";
 import { Signup } from "../components/vitals/Signup";
 import { Features } from "../components/utils/Features";
@@ -9,13 +9,13 @@ function Payment() {
   const signupRef = useRef();
   const paymentRef = useRef();
   const [step, setStep] = useState(0);
-
+  
   return (
     <>
       <PageHeader />
       <div className={styles.col6}>
         <div className={styles.el}>
-          <h1 style={{ padding: "15px 0 20px 12px" }}>Get into the course!</h1>
+          <h1 className={styles.left}>Get into the course!</h1>
           <Features
             prodName="Master coding course"
             price="$97 USD"

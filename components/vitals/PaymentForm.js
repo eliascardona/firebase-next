@@ -104,7 +104,7 @@ export default function PaymentForm() {
         <button
           type="submit"
           disabled={!stripe || !userEmail}
-          className={styles.formBtn}
+          className={styles.payBtn}
         >
           Pay now
         </button>

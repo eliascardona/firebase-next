@@ -13,6 +13,17 @@
     margin-left: 5px;
 }
 
+.payBtn {
+    margin: 12px 5px 5px 3px;
+	padding: 10px 50px 10px 50px;
+	border-style: none;
+	border-radius: 7px;
+	color: #fefefe;
+	background-color: #444444;
+    font-size: 16px;
+	font-family: inherit;
+}
+
 .formBtn {
     margin: 5px;
 	padding: 10px 50px 10px 50px;

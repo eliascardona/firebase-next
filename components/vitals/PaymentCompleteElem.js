@@ -24,11 +24,13 @@ export const PaymentCompleteElem = () => {
     <>
       {clientSecret && (
         <>
-          <span>Make the payment</span>
+          <span>Haz tu pago con 4242 4242 4242 4242.</span>
+          <br/>
+          <span>Escribe una fecha valida y cualquier CVC.</span>
           <hr/>
           <Elements options={options} stripe={stripePromise}>
             <PaymentForm />
-          </Elements>
+          </Elements>          
         </>
       )}
     </>
