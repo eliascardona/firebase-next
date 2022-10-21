@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../../styles/videos.module.css";
+import { PageHeader } from "../../components/sections/PageHeader";
 import { Header } from "../../components/utils/Header";
 import { Login } from "../../components/vitals/Login";
 import { firestore, auth } from "../../firebase/base";
@@ -47,8 +48,8 @@ const videos = () => {
   
   return (
     <>
-      <Header />
       <div ref={loginRef} style={{display:'none'}}>
+        <PageHeader />
         <div className={styles.centeredGrid}>
           <div className={styles.cardWhite}>
             <Login />
@@ -56,6 +57,7 @@ const videos = () => {
         </div>
       </div>
       <div ref={appRef} style={{display:'none'}}>
+        <Header />
         <div className={styles.grid}>
           <div className={styles.i1}>
             <div className={styles.img}>

@@ -101,7 +101,7 @@ export default function Details() {
               return quizLength.length - 1 === quizIterator ? (
                 `Quiz`
               ) : (
-                <div style={{ display: `${step === i ? "block" : "none"}` }}>
+                <div style={{ display: `${step === i ? "block" : "none"}` }} key={quiz.id}>
                   <InputObject quiz={quiz} addToGoodAns={addToGoodAns} />
                   <button
                     type="button"
